@@ -1,0 +1,124 @@
+:host {
+  margin-bottom: 3em;
+  display: block;
+}
+
+.show-mobile {
+  display: block;
+  background-color: var(--color-nav);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
+}
+
+.imgLogo{
+  filter: invert(var(--filtro));
+}
+
+.show-mobile > div {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-mobile > div button {
+  border: 0;
+  background: transparent;
+}
+
+.show-mobile .side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: --color-nav;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transform: translateX(-100%);
+  transition: all ease-out .5s;
+}
+
+.show-mobile .side-menu.active {
+  transform: translateX(0);
+}
+
+.hide-mobile {
+  background-color: --color-nav;
+  display: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
+  font-weight: bolder;
+  font-size: larger;
+  color: var(--color-negro);
+}
+
+.hide-mobile > div {
+  padding: 1em;
+}
+.hide-mobile .logOut {
+  border: 1px solid  #a14343;
+  color: #a14343;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 3px;
+}
+.hide-mobile .logo {
+  margin-right: 1em;
+}
+
+.hide-mobile nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hide-mobile nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.hide-mobile nav ul a {
+  margin: 0 .2em;
+  color: inherit;
+  text-decoration: none;
+  padding: .2em .8em;
+}
+
+.hide-mobile nav ul a.active {
+  border: 1px solid  var(--color-morado);
+  color: var(--color-morado);
+  border-radius: 5px;
+}
+
+.hide-mobile nav ul a.activo {
+  border: 1px solid  var(--color-morado);
+  color: var(--color-morado);
+  border-radius: 5px;
+}
+
+.hide-mobile .info {
+  display: flex;
+  align-items: center;
+}
+
+.hide-mobile .info .account {
+  margin-right: .5em;
+}
+
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+}

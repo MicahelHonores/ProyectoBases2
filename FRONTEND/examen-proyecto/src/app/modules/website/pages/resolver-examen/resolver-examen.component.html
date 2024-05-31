@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Inicio del exámen</h2>
+  <div *ngFor="let pregunta of preguntas">
+    <div *ngIf="pregunta[4]=== 1">
+      <app-completar [pregunta]="pregunta"></app-completar>
+    </div>
+    <div *ngIf="pregunta[4]=== 2">
+      <app-opcion-multiple [pregunta]="pregunta"></app-opcion-multiple>
+    </div>
+    <div *ngIf="pregunta[4]=== 3">
+      <app-emparejamiento [pregunta]="pregunta"></app-emparejamiento>
+    </div>
+    <div *ngIf="pregunta[4]=== 4">
+      <app-verdadero-falso [pregunta]="pregunta"></app-verdadero-falso>
+    </div>
+    <div *ngIf="pregunta[4]=== 5">
+      <app-ordenar-conceptos [pregunta]="pregunta"></app-ordenar-conceptos>
+    </div>
+  </div>
+</div>

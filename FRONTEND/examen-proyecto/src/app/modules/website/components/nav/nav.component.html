@@ -1,0 +1,50 @@
+<div class="show-mobile">
+  <div>
+    <button *ngIf="!isLoginRoute()" (click)="toggleMenu()"> ¡MENU!
+      <!-- <img src="./assets/svg/icon_menu.svg" alt="menu"> -->
+    </button>
+    <a routerLink="/home">
+      <img src="../../../../../../src/assets/svg/BELTXIMSOFT.svg" alt="logo">
+    </a>
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <button (click)="toggleMenu()">Close</button>
+    <ul>
+      <li><a routerLinkActive="active" routerLink="/home">HOME</a></li>
+      <li><a class="logOut" (click)="borrarToken()" routerLink="/login">Cerrar Sesión</a></li>
+    </ul>
+  </div>
+</div>
+<div id="navbar1" class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" routerLink="/home">
+        <svg width="80" height="80">
+          <image class="imgLogo" href="../../../../../assets/svg/BELTXIMSOFT.svg" alt="logo" height="80" width="80" />
+        </svg>
+      </a>
+      <ul *ngIf="!isLoginRoute() && userType==1">
+        <li><a routerLinkActive="active" routerLink="/home">HOME</a></li>
+        <li><a *ngIf="!isHomeRoute()" routerLinkActive="active" routerLink="/examenes">EXAMENES</a></li>
+        <li><a *ngIf="!isHomeRoute()" routerLinkActive="active" routerLink="/reportes">REPORTES</a></li>
+        <li><a *ngIf="!isHomeRoute()" routerLinkActive="active" routerLink="/horarios">HORARIO</a></li>
+        <li><a *ngIf="!isHomeRoute()" routerLinkActive="active" routerLink="/banco-preguntas">BANCO PREGUNTAS</a></li>
+      </ul>
+      <ul *ngIf="!isLoginRoute() && userType==0">
+        <li><a routerLinkActive="activo" routerLink="/estudiante">INICIO</a></li>
+        <li><a *ngIf="!isStudentRoute()" routerLinkActive="activo" routerLink="/asignados">MIS EXAMENES</a></li>
+        <li><a *ngIf="!isStudentRoute()" routerLinkActive="activo" routerLink="/notas">MIS NOTAS</a></li>
+        <li><a *ngIf="!isStudentRoute()" routerLinkActive="activo" routerLink="/mi-horario">MI HORARIO</a></li>
+        <li><a *ngIf="!isStudentRoute()" routerLinkActive="activo" routerLink="/contenidos">CONTENIDOS DE ASIGNATURAS</a></li>
+        <li><a *ngIf="!isStudentRoute()" routerLinkActive="activo" routerLink="/contenidos">ASIGNATURAS</a></li>
+      </ul>
+      <a *ngIf="!isLoginRoute()" class="logOut" (click)="borrarToken()" routerLink="/login">Cerrar Sesión</a>
+    </nav>
+    <div class="info">
+      <div class="account">
+
+      </div>
+
+    </div>
+  </div>
+</div>

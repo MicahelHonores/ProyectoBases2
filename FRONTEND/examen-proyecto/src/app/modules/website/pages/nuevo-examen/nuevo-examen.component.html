@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="form-group">
+    <label for="quizTitle">Título del Cuestionario</label>
+    <input type="text" id="quizTitle" placeholder="Título del Cuestionario" [(ngModel)]="tituloCuestionario">
+  </div>
+
+  <div class="form-group">
+    <label for="quizDescription">Descripción del Cuestionario</label>
+    <textarea id="quizDescription" placeholder="Describe tu cuestionario en unas pocas frases" maxlength="120" [(ngModel)]="descripcionCuestionario"></textarea>
+    <div class="char-counter">*Texto previo a presentar la prueba*</div>
+  </div>
+
+  <div class="form-group">
+    <label for="quizCategory">Elegir Categoría</label>
+    <select id="quizCategory" [(ngModel)]="categoriaCuestionario">
+      <option *ngFor="let curso of cursos" [value]="curso[0]">{{ curso[1] }}</option>
+    </select>
+  </div>
+
+  <hr/>
+  <br/>
+  <section *ngIf="showNotification" class="notification">
+    <div class="alert alert-info">
+      <p>
+        NO SE PUDO CREAR USUARIO
+      </p>
+      <span class="close-btn" (click)="closeNotification()">✖</span>
+    </div>
+  </section>
+
+  <!-- Aquí van los componentes para agregar preguntas -->
+  <!-- Opción Múltiple/Unica -->
+  <app-opcion-multiple (questionAdded)="addQuestion($event)"></app-opcion-multiple>
+  <!-- Emparejamiento -->
+  <app-emparejamiento (questionAdded)="addQuestion($event)"></app-emparejamiento>
+  <!-- Ordenar Conceptos -->
+  <app-ordenar-conceptos (questionAdded)="addQuestion($event)"></app-ordenar-conceptos>
+  <!-- Agregar Componente Completar -->
+  <app-completar (questionAdded)="addQuestion($event)"></app-completar>
+  <!-- Agregar Componente Verdadero/Falso -->
+  <app-verdadero-falso (questionAdded)="addQuestion($event)"></app-verdadero-falso>
+
+  <div class="endForm">
+    <label for="save">Orden de las Preguntas: </label>
+    <select [(ngModel)]="orden">
+      <option>En orden</option>
+      <option>Aleatorio</option>
+      <!-- Otras opciones -->
+    </select>
+    <label for="save">Cantidad de Preguntas a Mostrar: </label>
+    <input type="number" id="quizTitle" placeholder="Título del Cuestionario" [(ngModel)]="cantidadDePreguntas" min="1" max="{{questions.length}}">
+
+    <label for="save">Horario: </label>
+  </div>
+
+  <!-- Mostrar las preguntas agregadas -->
+  <div class="actions">
+    <button type="button" class="save" (click)="guardarExamen()">Guardar Examen</button>
+    <div *ngFor="let question of questions; let i = index">
+      <div>{{ i+1 }}-) {{ question.texto | shortName }}</div>
+      <!-- Botón para eliminar la pregunta -->
+      <button type="button" class="erase" (click)="eliminarPregunta((''+question.id_pregunta))">✖</button>
+    </div>
+  </div>
+</div>

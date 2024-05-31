@@ -1,0 +1,21 @@
+<!-- src/app/components/contenidos/contenidos.component.html -->
+<div class="container">
+  <h2>Contenidos para Estudiar</h2>
+  <div *ngIf="isLoading">Trayendo información...</div>
+  <div *ngIf="!isLoading">
+    <div *ngFor="let curso of cursos | keys">
+      <div class="curso-header" (click)="toggleContenido(curso)">
+        <h3>{{ curso }}</h3>
+      </div>
+      <div [id]="'curso-' + curso" class="contenido hidden">
+        <div *ngFor="let item of cursos[curso]">
+          <div class="unidad">
+            <h4>{{ item.unidad }}</h4>
+            <p>{{ item.contenido }}</p>
+            <span><strong class="title">Tema para:</strong> {{ item.examen }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

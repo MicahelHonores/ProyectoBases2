@@ -1,0 +1,16 @@
+<!-- lista-examenes.component.html -->
+<div class="container">
+  <h2>Lista de Exámenes del Profesor</h2>
+  <ul>
+    <li *ngFor="let examen of examenes">
+      <h3>{{ examen[1] }}</h3>
+      <p>{{ examen[2] }}</p>
+      <p>Cantidad de Preguntas: {{ examen[3] }}</p>
+      <p>Tiempo Límite: {{ examen[4] }}</p>
+      <p>Orden: {{ examen[6] }}</p>
+      <p>id: {{ examen[0] }}</p>
+      <button (click)="editarExamen(examen[0])">Editar</button>
+      <button (click)="eliminarExamen(examen[0])">Eliminar</button>
+    </li>
+  </ul>
+</div>

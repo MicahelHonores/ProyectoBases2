@@ -1,0 +1,23 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.imgLogo {
+  width: 40%; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+  border-radius: 50%;
+}
+
+.error-message {
+  font-style: italic;
+  margin-top: 20px;
+  color: var(--color-negro); /* Color del texto */
+}
+
+.dark-theme .error-message {
+  color: #fff; /* Color del texto en tema oscuro */
+}

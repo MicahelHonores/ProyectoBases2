@@ -1,0 +1,21 @@
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="text" id="id" name="id" [(ngModel)]="id" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Perfil:</label><br>
+      <input type="radio" id="student" name="profile" value="0" required>
+      <label for="student">Estudiante</label><br>
+      <input type="radio" id="professor" name="profile" value="1" [(ngModel)]="is_professor" required>
+      <label for="professor">Profesor</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

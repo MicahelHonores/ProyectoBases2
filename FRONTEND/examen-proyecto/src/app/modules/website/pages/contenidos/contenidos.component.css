@@ -1,0 +1,61 @@
+/* src/app/components/contenidos/contenidos.component.css */
+.curso-header {
+  background-color: var(--morado-2);
+  color: var(--color-blanco);
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.curso-header h3 {
+  margin: 0;
+}
+
+.contenido {
+  padding: 10px;
+  border-left: 4px solid var(--color-morado);
+  margin-bottom: 10px;
+  background-color: var(--morado-2);
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.unidad {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: var(--color-gris-oscuro);
+  border-radius: 5px;
+}
+
+.unidad h4 {
+  margin: 0;
+  color: var(--color-morado);
+}
+
+.unidad p {
+  margin: 5px 0;
+  color: var(--color-negro);
+}
+
+.unidad span {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--color-negro);
+}
+
+.title {
+  font-size: small;
+  font-weight: 600;
+  margin: 0 0.25rem;
+  font-style: oblique;
+}

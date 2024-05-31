@@ -1,0 +1,69 @@
+<div class="container" *ngIf="isDataLoaded">
+  <div class="form-group">
+    <label for="quizTitle">Título del Cuestionario</label>
+    <input type="text" id="quizTitle" placeholder="Título del Cuestionario" [(ngModel)]="tituloCuestionario">
+  </div>
+
+  <div class="form-group">
+    <label for="quizDescription">Descripción del Cuestionario</label>
+    <textarea id="quizDescription" placeholder="Describe tu cuestionario en unas pocas frases" maxlength="120" [(ngModel)]="descripcionCuestionario"></textarea>
+    <div class="char-counter">*Texto previo a presentar la prueba*</div>
+  </div>
+
+  <div class="form-group">
+    <label for="quizCategory">Elegir Categoría</label>
+    <select id="quizCategory" [(ngModel)]="categoriaCuestionario">
+      <option *ngFor="let curso of cursos" [value]="curso[0]">{{ curso[1] }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="questionOrder">Orden de las Preguntas</label>
+    <select id="questionOrder" [(ngModel)]="orden">
+      <option value="Ordenado">Ordenado</option>
+      <option value="Aleatorio">Aleatorio</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="questionCount">Cantidad de Preguntas a Mostrar</label>
+    <input type="number" id="questionCount" placeholder="Cantidad de preguntas" [(ngModel)]="cantidadDePreguntas" min="1" [max]="questions.length">
+  </div>
+
+  <div class="form-group">
+    <label for="questionCount">Tiempo en minutos</label>
+    <input type="number" id="questionCount" placeholder="Timepo limite" [(ngModel)]="cantidadDePreguntas" min="1" [max]="questions.length">
+  </div>
+
+  <hr/>
+  <br/>
+  <section *ngIf="showNotification" class="notification">
+    <div class="alert alert-info">
+      <p>
+        NO SE PUDO CREAR USUARIO
+      </p>
+      <span class="close-btn" (click)="closeNotification()">✖</span>
+    </div>
+  </section>
+
+  <!-- Aquí van los componentes para agregar preguntas -->
+  <app-opcion-multiple (questionAdded)="addQuestion($event)"></app-opcion-multiple>
+  <app-emparejamiento (questionAdded)="addQuestion($event)"></app-emparejamiento>
+  <app-ordenar-conceptos (questionAdded)="addQuestion($event)"></app-ordenar-conceptos>
+  <app-completar (questionAdded)="addQuestion($event)"></app-completar>
+  <app-verdadero-falso (questionAdded)="addQuestion($event)"></app-verdadero-falso>
+
+  <!-- Mostrar las preguntas agregadas -->
+  <div class="actions">
+    <h3>Preguntas Agregadas:</h3>
+    <div *ngFor="let question of questionsData; let i = index" class="question-item">
+      <div>{{ i + 1 }} - {{ question[1] | shortName}}</div>
+      <!-- Botón para eliminar la pregunta -->
+      <button type="button" class="erase" (click)="eliminarPregunta((''+question[0]))">✖</button>
+    </div>
+  </div>
+
+  <div class="endForm">
+    <button type="button" class="save" (click)="guardarExamen()">Guardar Examen</button>
+  </div>
+</div>

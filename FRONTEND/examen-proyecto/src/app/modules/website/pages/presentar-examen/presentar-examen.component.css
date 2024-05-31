@@ -1,0 +1,13 @@
+.resolver-preguntas{
+  width: 95%;
+}
+
+.resolver-preguntas .container{
+  width: 100%;
+}
+.title {
+  font-size: small;
+  font-weight: 600;
+  margin: 0 0.25rem;
+  font-style: oblique;
+}

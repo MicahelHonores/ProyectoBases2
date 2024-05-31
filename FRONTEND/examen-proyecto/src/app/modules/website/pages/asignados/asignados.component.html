@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Exámenes Asignados No Presentados</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Cantidad de Preguntas</th>
+        <th>Tiempo Límite</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let examen of examenes">
+        <td>{{ examen[0] }}</td>
+        <td>{{ examen[1] }}</td>
+        <td>{{ examen[2] }}</td>
+        <td>{{ examen[3] }}</td>
+        <td>{{ examen[4] }}</td>
+        <td>
+          <button (click)="presentarExamen(examen[0])" class="btn btn-primary">Presentar Examen</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

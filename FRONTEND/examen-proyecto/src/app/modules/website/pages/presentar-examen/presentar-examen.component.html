@@ -1,0 +1,46 @@
+<div class="container" *ngIf="isDataLoaded">
+  <div class="form-group">
+    <label for="quizTitle">{{tituloCuestionario}}</label>
+  </div>
+
+  <div class="form-group">
+    <label for="quizDescription" class="title">{{descripcionCuestionario}}</label>
+  </div>
+
+  <div class="form-group">
+    <label for="quizCategory" class="title">Categoría</label>
+    <select class="title" id="quizCategory" [(ngModel)]="categoriaCuestionario" disabled>
+      <option *ngFor="let curso of cursos" [value]="curso[0]">{{ curso[1] }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="questionCount" class="title">Cantidad de Preguntas: {{cantidadDePreguntas}}</label>
+  </div>
+
+  <div class="form-group">
+    <label for="questionCount" class="title">Tiempo: {{cantidadDePreguntas}} minutos</label>
+  </div>
+
+  <hr/>
+  <br/>
+  <section *ngIf="showNotification" class="notification">
+    <div class="alert alert-info">
+      <p>
+        NO SE PUDO CREAR USUARIO
+      </p>
+      <span class="close-btn" (click)="closeNotification()">✖</span>
+    </div>
+  </section>
+
+  <section class="resolver-preguntas">
+    <div class="container">
+      <h2>Presentar Examen</h2>
+      <app-resolver-examen [examId]="examId"></app-resolver-examen>
+    </div>
+  </section>
+
+  <div class="endForm">
+    <button type="button" class="save" (click)="TerminarExamen()">Guardar Examen</button>
+  </div>
+</div>

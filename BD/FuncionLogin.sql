@@ -1,0 +1,39 @@
+create or replace NONEDITIONABLE FUNCTION LOGIN_ESTUDIANTE(
+    USUARIO IN NUMBER,
+    CLAVE IN VARCHAR2
+) RETURN NUMBER AS
+    V_COUNT_EST NUMBER;
+BEGIN
+    --Buscamos que exista el ID y contraseña en la tabla estudiante
+    SELECT COUNT(*) INTO V_COUNT_EST FROM ESTUDIANTE
+    WHERE ID_ESTUDIANTE = USUARIO AND CONTRASEÑA = CLAVE;
+
+    --Validamos 
+    IF V_COUNT_EST = 1 THEN
+        RETURN 1;
+    ELSE
+        RETURN 0;
+    END IF;
+
+END;
+
+/
+
+create or replace NONEDITIONABLE FUNCTION LOGIN_PROFESOR(
+    USUARIO IN NUMBER,
+    CLAVE IN VARCHAR2
+) RETURN NUMBER AS
+    V_COUNT_PRO NUMBER;
+BEGIN
+    --Buscamos que exista en la tabla de profesores
+    SELECT COUNT(*) INTO V_COUNT_PRO FROM PROFESOR
+    WHERE ID_PROFESOR = USUARIO AND CONTRASEÑA = CLAVE;
+
+    --Validamos 
+    IF V_COUNT_PRO = 1 THEN
+        RETURN 1;
+    ELSE
+        RETURN 0;
+    END IF;
+
+END;

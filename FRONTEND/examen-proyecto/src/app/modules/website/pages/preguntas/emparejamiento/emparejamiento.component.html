@@ -1,0 +1,31 @@
+<!-- Emparejamiento -->
+<div class="form-group">
+  <label><p class="subtitle">Emparejamiento</p></label>
+  <!-- Rounded switch -->
+  <label class="switch">
+    <p class="privacy-text">Pregunta {{privacy ? "Privada" : "Pública"}}</p>
+    <input type="checkbox" [(ngModel)]="privacy">
+    <span class="slider round"></span>
+  </label>
+
+  <label class="questionText" for="questionText">Texto de la Pregunta</label>
+  <textarea id="questionText" [(ngModel)]="questionText" placeholder="Escribe la pregunta aquí"></textarea>
+</div>
+
+<div class="matching-group">
+  <label for="matching">Opciones: </label>
+  <div class="matching-container">
+    <div *ngFor="let pair of pairs; let i = index" class="pair">
+      <input type="text" [(ngModel)]="pairs[i].element1" placeholder="Elemento 1">
+      <input type="text" [(ngModel)]="pairs[i].element2" placeholder="Emparejar con">
+      <span class="remove-pair" *ngIf="i > 0" (click)="removePair(i)">✖</span>
+    </div>
+  </div>
+  <button type="button" class="add-pair" (click)="addPair()">Añadir Par</button>
+</div>
+
+<button type="button" class="add-question" (click)="addQuestion()">
+  <em *ngIf="validarRutaBanco()">Actualizar</em>
+  <em *ngIf="!validarRutaBanco()">Añadir Pregunta</em>
+</button>
+<hr/>

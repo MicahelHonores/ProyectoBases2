@@ -1,0 +1,7 @@
+.concepto{
+  color: var(--color-gris);
+  width: fit-content;
+  border: 1px solid var(--color-gris);
+  border-radius: 5px;
+  padding: .5%;
+}
